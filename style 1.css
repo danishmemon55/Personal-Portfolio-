@@ -1,0 +1,289 @@
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+/* Header with color-changing animation */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 10vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #000;
+    transition: background-color 0.5s ease;
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 1); /* Add subtle shadow for clarity */
+}
+
+h1 {
+    margin: 10;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+header .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    margin-left: 40px;
+}
+
+header .logo .ico {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #FFCC00;
+    color: #000;
+    font-size: 32px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+header nav ul {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-right: 30px;
+}
+
+header nav ul li a {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+    text-decoration: none;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+    filter: drop-shadow(0 0 10px blue);
+}
+
+ body {
+     font-family: 'Poppins', sans-serif;
+     background: linear-gradient(45deg,#13131B , #000000);
+     height: 100vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin: 0;
+     overflow: hidden;
+     position: relative;
+ }
+ 
+ /* Animation for background color shift */
+ body:before {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background: linear-gradient(45deg, #000000);
+     z-index: -1;
+     animation: moveBackground 10s infinite alternate;
+ }
+ 
+ @keyframes moveBackground {
+     0% {
+         filter: hue-rotate(0deg);
+     }
+     100% {
+         filter: hue-rotate(360deg);
+     }
+ }
+
+/* Form styling */
+.contact-form-container {
+    background-color: rgba(2, 1, 1, 0.47);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 15px 25px 30px rgba(255, 249, 249, 0.2);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h2 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+/* Style for contact form guidance statement */
+.contact-form-guidance {
+    font-family: 'Poppins', sans-serif;    /* Modern, clean font */
+    color: #bbb;                           /* Soft, neutral color */
+    font-size: 15px;                       /* Slightly larger font size */
+    text-align: left;                    /* Center the text */
+    margin-bottom: 20px;                   /* Space below the statement */
+    line-height: 1.5;                      /* Better line spacing */
+    letter-spacing: 0.5px;                 /* Add slight letter spacing */
+}
+
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+    font-weight: bold;
+    text-align: left;
+}
+
+input[type="text"], input[type="email"], textarea {
+    width: 96%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    outline: none;
+}
+/* Button with hover animation */
+button {
+    background-color: #6a11cb;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    width: 102%;
+    cursor: pointer;
+    font-size: 18px;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.5s
+}
+
+button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: 0.5s;
+}
+
+button:hover:before {
+    width: 100%;
+}
+
+button:hover {
+    background-color: #2575fc;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+}
+
+/* Input and text area placeholder styling */
+input::placeholder, textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+.alert {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #28a745;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.alert.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.alert.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.social-media-links {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.social-media-links a {
+  position: relative;
+  margin: 0 15px;
+  font-size: 40px;
+  color: #fff; /* Icon color */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-media-links a::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  background-color: #f39c12; /* Initial background color */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1; /* Puts the background behind the icon */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.social-media-links a:hover::before {
+  transform: translate(-50%, -50%) scale(1.5);
+  opacity: 1;
+}
+
+.social-media-links a:hover {
+  transform: scale(1.3);
+  color: #f39c12; /* Change icon color on hover */
+}
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.6);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+}
+
+.social-media-links a:hover::before {
+  animation: pulse 1s infinite;
+}
